@@ -32,6 +32,7 @@ include plugin_dir_path( __FILE__ ) . 'functions/ii_download_inspections.php';
 include plugin_dir_path( __FILE__ ) . 'functions/ii_download_restaurants.php';
 
 //Parse the downloaded files
+include plugin_dir_path( __FILE__ ) . 'functions/ii_google_places.php';
 include plugin_dir_path( __FILE__ ) . 'functions/ii_parse.php';
 include plugin_dir_path( __FILE__ ) . 'functions/ii_parse_inspections.php';
 
