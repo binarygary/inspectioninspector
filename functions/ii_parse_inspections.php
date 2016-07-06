@@ -103,7 +103,7 @@ function create_inspection_post_title( $insp ) {
     ),
   );
   $query = new WP_Query( $args );
-  write_log($query);
+ // write_log($query);
   
   if ( $query->post_count==1 ) {
     return $title=$query->posts[0]->post_title . " | Inspected " . date( 'l jS \of F Y', $insp['date'] );
