@@ -18,14 +18,25 @@ function ii_admin_settings() {
     }
     update_option( 'ii_urls', sanitize_ii_urls($_POST['URLS']) );
     update_option( 'ii_restaurants' , sanitize_ii_urls($_POST['RESTAURANTS']) );
-    echo "<div class=\"updated\"><p><strong>" . __( 'settings saved.' , 'ii_admin_settings') . "</strong></p></div>";
+    update_option( 'ii_google_places_api', sanitize_ii_urls($_POST['ii_google_places_api']));
+    echo "<div class=\"updated\"><p><strong>" . __( 'Settings Saved.' , 'ii_admin_settings') . "</strong></p></div>";
   }
   echo '<div class="wrap">';
   echo "<h2>" . __( 'Inspections Inspector Settings', 'ii_admin_settings' ) . "</h2>";
   $opt_val=get_option( 'ii_urls' );
   $res_val=get_option( 'ii_restaurants' );
+  $goog_api=get_option( 'ii_google_places_api' );
   ?>
   <form name="form1" method="post" action="">
+    <p>
+       <table class="form-table">
+	        <tr valign="top">
+	        <th scope="row">Google Place API Web Service Key:</th>
+	        <td><input type="text" class="regular-text" name="ii_google_places_api" value="<?php echo $goog_api ?>" /></td>
+	        </tr>
+    </table>
+    </p>
+    
     <?php wp_nonce_field('update_ii_settings'); ?>
     <p>
       <?php _e("Inspection URLS:", 'ii_admin_settings' ); ?> <em>enter a comma seperated list of <b>Inspection</b> URLs you are pulling inspection info from...</em>
