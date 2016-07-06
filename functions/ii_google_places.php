@@ -14,7 +14,6 @@ function ii_places_search($location) {
   $response=curl_exec($ch);
   $response=json_decode(stripslashes($response),true);
     
-	//print_r($response);
 	unset($ch);
 	
   if ('ZERO_RESULTS'==$response['status'] || 'INVALID_REQUEST'==$response['status']) {
@@ -49,7 +48,6 @@ function ii_placeDetails($placeId) {
         $response = substr($response, 3);
       }
       $response=json_decode($response,true);
-      //print_r($response);
       //$this->openNow=$response['result']['opening_hours']['open_now'];
 	  if (isset($response['result'])) {
 	      $gp['hours']=isset($response['result']['opening_hours']['weekday_text']) ? $response['result']['opening_hours']['weekday_text'] : '';//
@@ -67,7 +65,6 @@ function ii_placeDetails($placeId) {
 		  $gp['photos']=isset($response['result']['photos']) ? $response['result']['photos'] : '';
 	  }
       
-	  //print_r($gp);
 	  return($gp);
   	} else  {
   		return;

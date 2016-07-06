@@ -52,7 +52,7 @@ function save_restaurant( $restaurant ) {
   wp_set_object_terms( $id, $restaurant['risk'] , 'risk');
   wp_set_object_terms( $id, $restaurant['seats'], 'seats' );
   wp_set_object_terms( $id, $restaurant['type'], 'ii_type' );
-  $result=ii_search( $restaurant['name'] . $restaurant['add1'] . $restaurant['add2'] . $restaurant['add3'] . $restaurant['city'] . $restaurant['state'] . $restaurant['zip'] );
+  $result=ii_places_search( $restaurant['name'] . $restaurant['add1'] . $restaurant['add2'] . $restaurant['add3'] . $restaurant['city'] . $restaurant['state'] . $restaurant['zip'] );
   update_post_meta( $id, '_WP_Places_meta_Google_response', $result);
 	$placeDetails=ii_placeDetails($result);
 	update_post_meta( $id, '_WP_Places_lat', $placeDetails['lat']);
