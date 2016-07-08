@@ -13,11 +13,11 @@ function ii_activation() {
 	ii_default_options();
 
   if ( !wp_next_scheduled ( 'ii_download' ) ) {
-  	wp_schedule_event( time(), 'everyotherday', 'ii_download' );
+  	wp_schedule_event( time(), 'weekly', 'ii_download' );
   } 
 	
 	if ( !wp_next_scheduled ( 'ii_download_restaurants' ) ) {
-  	wp_schedule_event( time(), 'everyotherday', 'ii_download_restaurants' );
+  	wp_schedule_event( time(), 'weekly', 'ii_download_restaurants' );
   }
 	
 	if( !wp_next_scheduled ( 'ii_parse' ) ) {
@@ -49,6 +49,10 @@ function ii_add_times() {
 	$schedules['everyotherday'] = array(
 		'interval' => 172800,
 		'display' => __('Every Other Day')
+	);
+	$schedules['weekly'] = array(
+		'interval' => 604800,
+		'display' => __('Weekly')
 	);
 	return $schedules;
 }

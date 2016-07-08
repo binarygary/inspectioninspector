@@ -49,7 +49,7 @@ function update_url_stats( $data ) {
 function split_inspection_csv( $filename ) {
   $inputFile = $filename;
   $outputFile = $filename;
-  $splitSize = 250;
+  $splitSize = 50;
   $in = fopen( plugin_dir_path( __DIR__) . "csv-inspections/$filename", 'r');
 
    $rowCount = 0;

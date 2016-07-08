@@ -27,7 +27,7 @@ function ii_download_restaurant_files() {
 function split_restaurant_csv( $filename ) {
   $inputFile = $filename;
   $outputFile = $filename;
-  $splitSize = 250;
+  $splitSize = 50;
   $in = fopen( plugin_dir_path( __DIR__) . "csv-restaurants/$filename", 'r');
 
    $rowCount = 0;
