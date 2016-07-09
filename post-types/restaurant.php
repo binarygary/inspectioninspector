@@ -59,3 +59,21 @@ function restaurant_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'restaurant_updated_messages' );
+
+
+add_filter('manage_edit-restaurant_columns' , 'add_restaurant_columns');
+function add_restaurant_columns( $columns ) {
+    $columns['seats'] = 'Seats';
+    return $columns;
+}
+ 
+add_action('manage_restaurant_custom_column',  'restaurant_show_column');
+function restaurant_show_columng($name) {
+    global $post;
+		switch ($name) {
+			case 'seats':
+			if (!NULL==get_post_meta($post->ID, 'seats', true)) {
+				echo get_post_meta($post->ID, 'seats', true);
+			}
+		}
+  }
