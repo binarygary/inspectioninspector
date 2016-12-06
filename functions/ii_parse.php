@@ -42,7 +42,7 @@ function save_restaurant( $restaurant ) {
   $restaurant=validate_sanitize_restaurant( $restaurant );
   $restaurantpost['ID']=check_for_existing_restaurant_post( $restaurant['lic'] );
   $restaurantpost['post_title']=create_restaurant_post_title( $restaurant );
-  $restaurantpost['post_content']=print_r( $restaurant, TRUE );
+  $restaurantpost['post_content']='';
   $restaurantpost['post_type']='restaurant';
   $restaurantpost['post_status']='publish';
   $restaurantpost['meta_input']=create_restaurant_meta( $restaurant );
